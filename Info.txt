@@ -1,0 +1,29 @@
+Grover's Algorithm Explorer
+
+
+6 Core Experiments:
+
+Classical vs Quantum — Why Grover's is revolutionary (√N speedup)
+2-Qubit Grover — Simple example finding |11⟩ among 4 states
+Iteration Effects — Show how amplitude grows with each Oracle+Diffusion cycle
+3-Qubit Grover — Finding |101⟩ among 8 states (more realistic)
+Iteration Sweep — Demonstrates optimal iteration count (~π/4 × √N)
+Multiple Targets — Finding 2 marked states simultaneously
+
+Key Components:
+
+Oracle: Marks target with phase flip (-1)
+Diffusion: "Inversion about average" — amplifies marked state
+Repeat: ~√N times for optimal results
+
+The Magic:
+Classical: 4 items → 2 guesses on average
+Quantum:   4 items → 1 Grover iteration (90%+ success)
+For N=1,000,000: Classical needs ~500k tries, Grover needs ~1000 tries. 500x speedup!
+Visualizations (5 PNG files):
+
+2-qubit amplitude growth over iterations
+2-qubit search results (target |11⟩ amplified)
+3-qubit iteration sweep (finding optimal count)
+3-qubit results histogram
+Conceptual overview (superposition → oracle → diffusion → amplification)
