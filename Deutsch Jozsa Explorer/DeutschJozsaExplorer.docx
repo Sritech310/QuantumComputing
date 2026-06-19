@@ -1,1 +1,41 @@
+Deutsch-Jozsa Algorithm Explorer
+
+The Core Problem:
+Given a function f: {0,1}^n → {0,1}, determine if it's:
+•	CONSTANT: f always returns 0 or always returns 1
+•	BALANCED: f returns 0 for exactly half the inputs, 1 for the other half
+Classical vs Quantum:
+Classical: Up to 2^(n-1) + 1 evaluations
+  n=1:    2 evaluations
+  n=10:   513 evaluations  
+  n=100:  2^99 (impossible!)
+
+Quantum: Exactly 1 evaluation (always!)
+  Any n: Just 1 oracle call
+6 Core Experiments:
+1.	Function Properties — Understanding constant vs balanced
+2.	1-Qubit Deutsch — Simple case (4 possible functions)
+3.	2-Qubit DJ — Testing multiple constant and balanced functions
+4.	3-Qubit DJ — 8 inputs, 256 possible functions (tests a few)
+5.	Complexity Analysis — Shows exponential speedup scaling
+6.	Oracle Construction — How to encode functions into quantum gates
+Key Algorithm Steps:
+1.	Superposition all inputs + ancilla in |−⟩
+2.	Apply oracle U_f (phase-encodes the function)
+3.	Hadamard interference reveals the property
+4.	Measure: All 0s = CONSTANT, Any 1 = BALANCED
+Why It Works:
+•	Classical: Must check each input individually
+•	Quantum: Interference pattern reveals GLOBAL property in one shot
+•	Oracle phase-flips paths where f(x)=1
+•	Hadamard interference amplifies the pattern
+Visualizations (5 PNG files):
+•	1-qubit, 2-qubit, 3-qubit function classifications
+•	Exponential complexity comparison (log scale)
+•	Algorithm flow diagram (initialization → oracle → measurement)
+To Run:
+bash
+python DeutschJozsaExplorer.py
+
+This demonstrates real quantum advantage—the first algorithm showing computers can be exponentially faster! It's the precursor to Shor's factoring algorithm.
 
