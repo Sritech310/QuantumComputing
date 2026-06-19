@@ -1,1 +1,49 @@
+Quantum Phase Estimation Explorer 
+This is a gateway algorithm—it's used in Shor's factoring algorithm, VQE, and quantum simulation. Here's what it covers:
+
+The Core Problem:
+Given a unitary operator U and its eigenstate |ψ⟩:
+•	U|ψ⟩ = e^(2πiθ)|ψ⟩
+•	Estimate the phase θ (where 0 ≤ θ < 1)
+Classical vs Quantum:
+Classical: Many experiments + classical post-processing
+Quantum:   One measurement with high precision
+6 Core Experiments:
+1.	Eigenvalues and Phases — Understanding the eigenvalue equation
+2.	1-Qubit Phase Estimation — Simple case, coarse precision (Δθ = 0.5)
+3.	3-Qubit Phase Estimation — Higher precision (Δθ = 0.125)
+4.	Precision Analysis — Show how precision scales: n qubits → precision 1/2^n
+5.	Quantum Counting — Count marked items using Grover operator phase
+6.	Eigenvalue Estimation — Estimate eigenvalues of different quantum gates
+Key Algorithm Steps:
+1.	Initialize n counting qubits in superposition (Hadamard)
+2.	Initialize work qubits in eigenstate |ψ⟩
+3.	Apply controlled-U^(2^j) operations (j = 0 to n-1)
+4.	Apply inverse Quantum Fourier Transform (QFT)
+5.	Measure counting qubits → binary string = phase (as fraction of 1)
+Precision Scaling:
+1 qubit:  ±0.500 (2 distinguishable phases)
+2 qubits: ±0.250 (4 distinguishable phases)
+3 qubits: ±0.125 (8 distinguishable phases)
+n qubits: ±1/2^n (2^n distinguishable phases)
+Quantum Counting:
+Count M marked items out of N total:
+  Phase θ ≈ arcsin(√(M/N)) / π
+  Recover: M ≈ N × sin²(πθ)
+  Speedup: O(1) quantum calls vs checking items classically
+Visualizations (5 PNG files):
+•	1-qubit Z gate eigenstate phase estimation
+•	3-qubit S/T gate eigenvalue estimates
+•	Precision vs number of qubits (exponential improvement)
+•	Algorithm step-by-step flowchart
+•	Quantum counting: phase to item count mapping
+To Run:
+bash
+python QuantumPhaseEstimationExplorer.py
+Why It Matters:
+•	Shor's Algorithm: Uses phase estimation to find the order of a number (crucial for factoring)
+•	VQE: Estimates ground state energy of molecules
+•	Quantum Simulation: Extract energy eigenvalues of systems
+•	Universal Building Block: Foundation for many quantum algorithms
+
 
